@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.easypoi.mapper.TransferApplyMapper">
+  <resultMap id="BaseResultMap" type="com.test.easypoi.pojo.TransferApply">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="apply_time" jdbcType="TIMESTAMP" property="applyTime" />
+    <result column="corpus" jdbcType="DOUBLE" property="corpus" />
+    <result column="deadline" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="premium" jdbcType="DOUBLE" property="premium" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="invest_id" jdbcType="VARCHAR" property="investId" />
+    <result column="is_wisdom" jdbcType="VARCHAR" property="isWisdom" />
+    <result column="sourceOrderid" jdbcType="VARCHAR" property="sourceorderid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, apply_time, corpus, deadline, premium, status, invest_id, is_wisdom, sourceOrderid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from transfer_apply
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from transfer_apply
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.test.easypoi.pojo.TransferApply">
+    insert into transfer_apply (id, apply_time, corpus, 
+      deadline, premium, status, 
+      invest_id, is_wisdom, sourceOrderid
+      )
+    values (#{id,jdbcType=VARCHAR}, #{applyTime,jdbcType=TIMESTAMP}, #{corpus,jdbcType=DOUBLE}, 
+      #{deadline,jdbcType=TIMESTAMP}, #{premium,jdbcType=DOUBLE}, #{status,jdbcType=VARCHAR}, 
+      #{investId,jdbcType=VARCHAR}, #{isWisdom,jdbcType=VARCHAR}, #{sourceorderid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.test.easypoi.pojo.TransferApply">
+    insert into transfer_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="applyTime != null">
+        apply_time,
+      </if>
+      <if test="corpus != null">
+        corpus,
+      </if>
+      <if test="deadline != null">
+        deadline,
+      </if>
+      <if test="premium != null">
+        premium,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="investId != null">
+        invest_id,
+      </if>
+      <if test="isWisdom != null">
+        is_wisdom,
+      </if>
+      <if test="sourceorderid != null">
+        sourceOrderid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="corpus != null">
+        #{corpus,jdbcType=DOUBLE},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="premium != null">
+        #{premium,jdbcType=DOUBLE},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="investId != null">
+        #{investId,jdbcType=VARCHAR},
+      </if>
+      <if test="isWisdom != null">
+        #{isWisdom,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceorderid != null">
+        #{sourceorderid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.easypoi.pojo.TransferApply">
+    update transfer_apply
+    <set>
+      <if test="applyTime != null">
+        apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="corpus != null">
+        corpus = #{corpus,jdbcType=DOUBLE},
+      </if>
+      <if test="deadline != null">
+        deadline = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="premium != null">
+        premium = #{premium,jdbcType=DOUBLE},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="investId != null">
+        invest_id = #{investId,jdbcType=VARCHAR},
+      </if>
+      <if test="isWisdom != null">
+        is_wisdom = #{isWisdom,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceorderid != null">
+        sourceOrderid = #{sourceorderid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test.easypoi.pojo.TransferApply">
+    update transfer_apply
+    set apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      corpus = #{corpus,jdbcType=DOUBLE},
+      deadline = #{deadline,jdbcType=TIMESTAMP},
+      premium = #{premium,jdbcType=DOUBLE},
+      status = #{status,jdbcType=VARCHAR},
+      invest_id = #{investId,jdbcType=VARCHAR},
+      is_wisdom = #{isWisdom,jdbcType=VARCHAR},
+      sourceOrderid = #{sourceorderid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.easypoi.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.test.easypoi.pojo.User">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="home_address" jdbcType="VARCHAR" property="homeAddress" />
+    <result column="QQ" jdbcType="VARCHAR" property="qq" />
+    <result column="MSN" jdbcType="VARCHAR" property="msn" />
+    <result column="mobile_number" jdbcType="VARCHAR" property="mobileNumber" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="current_address" jdbcType="VARCHAR" property="currentAddress" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="security_question1" jdbcType="VARCHAR" property="securityQuestion1" />
+    <result column="security_question2" jdbcType="VARCHAR" property="securityQuestion2" />
+    <result column="security_answer1" jdbcType="VARCHAR" property="securityAnswer1" />
+    <result column="security_answer2" jdbcType="VARCHAR" property="securityAnswer2" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="cash_password" jdbcType="VARCHAR" property="cashPassword" />
+    <result column="area_city" jdbcType="VARCHAR" property="areaCity" />
+    <result column="photo" jdbcType="VARCHAR" property="photo" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="disable_time" jdbcType="TIMESTAMP" property="disableTime" />
+    <result column="borrower_info_id" jdbcType="VARCHAR" property="borrowerInfoId" />
+    <result column="level" jdbcType="VARCHAR" property="level" />
+    <result column="bind_ip" jdbcType="VARCHAR" property="bindIp" />
+    <result column="referrer" jdbcType="VARCHAR" property="referrer" />
+    <result column="gas_card" jdbcType="VARCHAR" property="gasCard" />
+    <result column="gas_station" jdbcType="VARCHAR" property="gasStation" />
+    <result column="gas_time" jdbcType="TIMESTAMP" property="gasTime" />
+    <result column="plate_number" jdbcType="VARCHAR" property="plateNumber" />
+    <result column="last_login_area" jdbcType="VARCHAR" property="lastLoginArea" />
+    <result column="subst_id" jdbcType="VARCHAR" property="substId" />
+    <result column="userpoint" jdbcType="VARCHAR" property="userpoint" />
+    <result column="photoupdatetime" jdbcType="VARCHAR" property="photoupdatetime" />
+    <result column="weixinname" jdbcType="VARCHAR" property="weixinname" />
+    <result column="weixinheadimg" jdbcType="VARCHAR" property="weixinheadimg" />
+    <result column="tiyanjin_id" jdbcType="VARCHAR" property="tiyanjinId" />
+    <result column="islogin" jdbcType="INTEGER" property="islogin" />
+    <result column="bbin" jdbcType="DOUBLE" property="bbin" />
+    <result column="fanstatus" jdbcType="INTEGER" property="fanstatus" />
+    <result column="huanyuan" jdbcType="DOUBLE" property="huanyuan" />
+    <result column="jiagou" jdbcType="DOUBLE" property="jiagou" />
+    <result column="jingying" jdbcType="DOUBLE" property="jingying" />
+    <result column="lirunlv" jdbcType="DOUBLE" property="lirunlv" />
+    <result column="risk_level" jdbcType="VARCHAR" property="riskLevel" />
+    <result column="shiyonglv" jdbcType="DOUBLE" property="shiyonglv" />
+    <result column="sessionid" jdbcType="VARCHAR" property="sessionid" />
+    <result column="fgjidcard" jdbcType="VARCHAR" property="fgjidcard" />
+    <result column="fgjname" jdbcType="VARCHAR" property="fgjname" />
+    <result column="sealDue" jdbcType="TIMESTAMP" property="sealdue" />
+    <result column="sealmsg" jdbcType="VARCHAR" property="sealmsg" />
+    <result column="sealstatus" jdbcType="INTEGER" property="sealstatus" />
+    <result column="userSource" jdbcType="VARCHAR" property="usersource" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.test.easypoi.pojo.UserWithBlobs">
+    <result column="comment" jdbcType="LONGVARCHAR" property="comment" />
+    <result column="sealdetail" jdbcType="LONGVARCHAR" property="sealdetail" />
+    <result column="idcardImgF" jdbcType="LONGVARCHAR" property="idcardimgf" />
+    <result column="idcardImgR" jdbcType="LONGVARCHAR" property="idcardimgr" />
+    <result column="sfidcardImgF" jdbcType="LONGVARCHAR" property="sfidcardimgf" />
+    <result column="sfidcardImgR" jdbcType="LONGVARCHAR" property="sfidcardimgr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, email, password, status, realname, sex, birthday, home_address, QQ, 
+    MSN, mobile_number, id_card, current_address, nickname, security_question1, security_question2, 
+    security_answer1, security_answer2, last_login_time, register_time, area, cash_password, 
+    area_city, photo, score, disable_time, borrower_info_id, level, bind_ip, referrer, 
+    gas_card, gas_station, gas_time, plate_number, last_login_area, subst_id, userpoint, 
+    photoupdatetime, weixinname, weixinheadimg, tiyanjin_id, islogin, bbin, fanstatus, 
+    huanyuan, jiagou, jingying, lirunlv, risk_level, shiyonglv, sessionid, fgjidcard, 
+    fgjname, sealDue, sealmsg, sealstatus, userSource
+  </sql>
+  <sql id="Blob_Column_List">
+    comment, sealdetail, idcardImgF, idcardImgR, sfidcardImgF, sfidcardImgR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.test.easypoi.pojo.UserWithBlobs">
+    insert into user (id, username, email, 
+      password, status, realname, 
+      sex, birthday, home_address, 
+      QQ, MSN, mobile_number, 
+      id_card, current_address, nickname, 
+      security_question1, security_question2, security_answer1, 
+      security_answer2, last_login_time, register_time, 
+      area, cash_password, area_city, 
+      photo, score, disable_time, 
+      borrower_info_id, level, bind_ip, 
+      referrer, gas_card, gas_station, 
+      gas_time, plate_number, last_login_area, 
+      subst_id, userpoint, photoupdatetime, 
+      weixinname, weixinheadimg, tiyanjin_id, 
+      islogin, bbin, fanstatus, 
+      huanyuan, jiagou, jingying, 
+      lirunlv, risk_level, shiyonglv, 
+      sessionid, fgjidcard, fgjname, 
+      sealDue, sealmsg, sealstatus, 
+      userSource, comment, sealdetail, 
+      idcardImgF, idcardImgR, sfidcardImgF, 
+      sfidcardImgR)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{realname,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, #{homeAddress,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{msn,jdbcType=VARCHAR}, #{mobileNumber,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=VARCHAR}, #{currentAddress,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{securityQuestion1,jdbcType=VARCHAR}, #{securityQuestion2,jdbcType=VARCHAR}, #{securityAnswer1,jdbcType=VARCHAR}, 
+      #{securityAnswer2,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{registerTime,jdbcType=TIMESTAMP}, 
+      #{area,jdbcType=VARCHAR}, #{cashPassword,jdbcType=VARCHAR}, #{areaCity,jdbcType=VARCHAR}, 
+      #{photo,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{disableTime,jdbcType=TIMESTAMP}, 
+      #{borrowerInfoId,jdbcType=VARCHAR}, #{level,jdbcType=VARCHAR}, #{bindIp,jdbcType=VARCHAR}, 
+      #{referrer,jdbcType=VARCHAR}, #{gasCard,jdbcType=VARCHAR}, #{gasStation,jdbcType=VARCHAR}, 
+      #{gasTime,jdbcType=TIMESTAMP}, #{plateNumber,jdbcType=VARCHAR}, #{lastLoginArea,jdbcType=VARCHAR}, 
+      #{substId,jdbcType=VARCHAR}, #{userpoint,jdbcType=VARCHAR}, #{photoupdatetime,jdbcType=VARCHAR}, 
+      #{weixinname,jdbcType=VARCHAR}, #{weixinheadimg,jdbcType=VARCHAR}, #{tiyanjinId,jdbcType=VARCHAR}, 
+      #{islogin,jdbcType=INTEGER}, #{bbin,jdbcType=DOUBLE}, #{fanstatus,jdbcType=INTEGER}, 
+      #{huanyuan,jdbcType=DOUBLE}, #{jiagou,jdbcType=DOUBLE}, #{jingying,jdbcType=DOUBLE}, 
+      #{lirunlv,jdbcType=DOUBLE}, #{riskLevel,jdbcType=VARCHAR}, #{shiyonglv,jdbcType=DOUBLE}, 
+      #{sessionid,jdbcType=VARCHAR}, #{fgjidcard,jdbcType=VARCHAR}, #{fgjname,jdbcType=VARCHAR}, 
+      #{sealdue,jdbcType=TIMESTAMP}, #{sealmsg,jdbcType=VARCHAR}, #{sealstatus,jdbcType=INTEGER}, 
+      #{usersource,jdbcType=VARCHAR}, #{comment,jdbcType=LONGVARCHAR}, #{sealdetail,jdbcType=LONGVARCHAR}, 
+      #{idcardimgf,jdbcType=LONGVARCHAR}, #{idcardimgr,jdbcType=LONGVARCHAR}, #{sfidcardimgf,jdbcType=LONGVARCHAR}, 
+      #{sfidcardimgr,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.test.easypoi.pojo.UserWithBlobs">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="realname != null">
+        realname,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="homeAddress != null">
+        home_address,
+      </if>
+      <if test="qq != null">
+        QQ,
+      </if>
+      <if test="msn != null">
+        MSN,
+      </if>
+      <if test="mobileNumber != null">
+        mobile_number,
+      </if>
+      <if test="idCard != null">
+        id_card,
+      </if>
+      <if test="currentAddress != null">
+        current_address,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="securityQuestion1 != null">
+        security_question1,
+      </if>
+      <if test="securityQuestion2 != null">
+        security_question2,
+      </if>
+      <if test="securityAnswer1 != null">
+        security_answer1,
+      </if>
+      <if test="securityAnswer2 != null">
+        security_answer2,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="cashPassword != null">
+        cash_password,
+      </if>
+      <if test="areaCity != null">
+        area_city,
+      </if>
+      <if test="photo != null">
+        photo,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="disableTime != null">
+        disable_time,
+      </if>
+      <if test="borrowerInfoId != null">
+        borrower_info_id,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+      <if test="bindIp != null">
+        bind_ip,
+      </if>
+      <if test="referrer != null">
+        referrer,
+      </if>
+      <if test="gasCard != null">
+        gas_card,
+      </if>
+      <if test="gasStation != null">
+        gas_station,
+      </if>
+      <if test="gasTime != null">
+        gas_time,
+      </if>
+      <if test="plateNumber != null">
+        plate_number,
+      </if>
+      <if test="lastLoginArea != null">
+        last_login_area,
+      </if>
+      <if test="substId != null">
+        subst_id,
+      </if>
+      <if test="userpoint != null">
+        userpoint,
+      </if>
+      <if test="photoupdatetime != null">
+        photoupdatetime,
+      </if>
+      <if test="weixinname != null">
+        weixinname,
+      </if>
+      <if test="weixinheadimg != null">
+        weixinheadimg,
+      </if>
+      <if test="tiyanjinId != null">
+        tiyanjin_id,
+      </if>
+      <if test="islogin != null">
+        islogin,
+      </if>
+      <if test="bbin != null">
+        bbin,
+      </if>
+      <if test="fanstatus != null">
+        fanstatus,
+      </if>
+      <if test="huanyuan != null">
+        huanyuan,
+      </if>
+      <if test="jiagou != null">
+        jiagou,
+      </if>
+      <if test="jingying != null">
+        jingying,
+      </if>
+      <if test="lirunlv != null">
+        lirunlv,
+      </if>
+      <if test="riskLevel != null">
+        risk_level,
+      </if>
+      <if test="shiyonglv != null">
+        shiyonglv,
+      </if>
+      <if test="sessionid != null">
+        sessionid,
+      </if>
+      <if test="fgjidcard != null">
+        fgjidcard,
+      </if>
+      <if test="fgjname != null">
+        fgjname,
+      </if>
+      <if test="sealdue != null">
+        sealDue,
+      </if>
+      <if test="sealmsg != null">
+        sealmsg,
+      </if>
+      <if test="sealstatus != null">
+        sealstatus,
+      </if>
+      <if test="usersource != null">
+        userSource,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="sealdetail != null">
+        sealdetail,
+      </if>
+      <if test="idcardimgf != null">
+        idcardImgF,
+      </if>
+      <if test="idcardimgr != null">
+        idcardImgR,
+      </if>
+      <if test="sfidcardimgf != null">
+        sfidcardImgF,
+      </if>
+      <if test="sfidcardimgr != null">
+        sfidcardImgR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="homeAddress != null">
+        #{homeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="msn != null">
+        #{msn,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileNumber != null">
+        #{mobileNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="currentAddress != null">
+        #{currentAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="securityQuestion1 != null">
+        #{securityQuestion1,jdbcType=VARCHAR},
+      </if>
+      <if test="securityQuestion2 != null">
+        #{securityQuestion2,jdbcType=VARCHAR},
+      </if>
+      <if test="securityAnswer1 != null">
+        #{securityAnswer1,jdbcType=VARCHAR},
+      </if>
+      <if test="securityAnswer2 != null">
+        #{securityAnswer2,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="cashPassword != null">
+        #{cashPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCity != null">
+        #{areaCity,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null">
+        #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="disableTime != null">
+        #{disableTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="borrowerInfoId != null">
+        #{borrowerInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="bindIp != null">
+        #{bindIp,jdbcType=VARCHAR},
+      </if>
+      <if test="referrer != null">
+        #{referrer,jdbcType=VARCHAR},
+      </if>
+      <if test="gasCard != null">
+        #{gasCard,jdbcType=VARCHAR},
+      </if>
+      <if test="gasStation != null">
+        #{gasStation,jdbcType=VARCHAR},
+      </if>
+      <if test="gasTime != null">
+        #{gasTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plateNumber != null">
+        #{plateNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginArea != null">
+        #{lastLoginArea,jdbcType=VARCHAR},
+      </if>
+      <if test="substId != null">
+        #{substId,jdbcType=VARCHAR},
+      </if>
+      <if test="userpoint != null">
+        #{userpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="photoupdatetime != null">
+        #{photoupdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinname != null">
+        #{weixinname,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinheadimg != null">
+        #{weixinheadimg,jdbcType=VARCHAR},
+      </if>
+      <if test="tiyanjinId != null">
+        #{tiyanjinId,jdbcType=VARCHAR},
+      </if>
+      <if test="islogin != null">
+        #{islogin,jdbcType=INTEGER},
+      </if>
+      <if test="bbin != null">
+        #{bbin,jdbcType=DOUBLE},
+      </if>
+      <if test="fanstatus != null">
+        #{fanstatus,jdbcType=INTEGER},
+      </if>
+      <if test="huanyuan != null">
+        #{huanyuan,jdbcType=DOUBLE},
+      </if>
+      <if test="jiagou != null">
+        #{jiagou,jdbcType=DOUBLE},
+      </if>
+      <if test="jingying != null">
+        #{jingying,jdbcType=DOUBLE},
+      </if>
+      <if test="lirunlv != null">
+        #{lirunlv,jdbcType=DOUBLE},
+      </if>
+      <if test="riskLevel != null">
+        #{riskLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="shiyonglv != null">
+        #{shiyonglv,jdbcType=DOUBLE},
+      </if>
+      <if test="sessionid != null">
+        #{sessionid,jdbcType=VARCHAR},
+      </if>
+      <if test="fgjidcard != null">
+        #{fgjidcard,jdbcType=VARCHAR},
+      </if>
+      <if test="fgjname != null">
+        #{fgjname,jdbcType=VARCHAR},
+      </if>
+      <if test="sealdue != null">
+        #{sealdue,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sealmsg != null">
+        #{sealmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="sealstatus != null">
+        #{sealstatus,jdbcType=INTEGER},
+      </if>
+      <if test="usersource != null">
+        #{usersource,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sealdetail != null">
+        #{sealdetail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="idcardimgf != null">
+        #{idcardimgf,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="idcardimgr != null">
+        #{idcardimgr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sfidcardimgf != null">
+        #{sfidcardimgf,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sfidcardimgr != null">
+        #{sfidcardimgr,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.easypoi.pojo.UserWithBlobs">
+    update user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="realname != null">
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="homeAddress != null">
+        home_address = #{homeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="msn != null">
+        MSN = #{msn,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileNumber != null">
+        mobile_number = #{mobileNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="currentAddress != null">
+        current_address = #{currentAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="securityQuestion1 != null">
+        security_question1 = #{securityQuestion1,jdbcType=VARCHAR},
+      </if>
+      <if test="securityQuestion2 != null">
+        security_question2 = #{securityQuestion2,jdbcType=VARCHAR},
+      </if>
+      <if test="securityAnswer1 != null">
+        security_answer1 = #{securityAnswer1,jdbcType=VARCHAR},
+      </if>
+      <if test="securityAnswer2 != null">
+        security_answer2 = #{securityAnswer2,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="cashPassword != null">
+        cash_password = #{cashPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCity != null">
+        area_city = #{areaCity,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null">
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="disableTime != null">
+        disable_time = #{disableTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="borrowerInfoId != null">
+        borrower_info_id = #{borrowerInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="bindIp != null">
+        bind_ip = #{bindIp,jdbcType=VARCHAR},
+      </if>
+      <if test="referrer != null">
+        referrer = #{referrer,jdbcType=VARCHAR},
+      </if>
+      <if test="gasCard != null">
+        gas_card = #{gasCard,jdbcType=VARCHAR},
+      </if>
+      <if test="gasStation != null">
+        gas_station = #{gasStation,jdbcType=VARCHAR},
+      </if>
+      <if test="gasTime != null">
+        gas_time = #{gasTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plateNumber != null">
+        plate_number = #{plateNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginArea != null">
+        last_login_area = #{lastLoginArea,jdbcType=VARCHAR},
+      </if>
+      <if test="substId != null">
+        subst_id = #{substId,jdbcType=VARCHAR},
+      </if>
+      <if test="userpoint != null">
+        userpoint = #{userpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="photoupdatetime != null">
+        photoupdatetime = #{photoupdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinname != null">
+        weixinname = #{weixinname,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinheadimg != null">
+        weixinheadimg = #{weixinheadimg,jdbcType=VARCHAR},
+      </if>
+      <if test="tiyanjinId != null">
+        tiyanjin_id = #{tiyanjinId,jdbcType=VARCHAR},
+      </if>
+      <if test="islogin != null">
+        islogin = #{islogin,jdbcType=INTEGER},
+      </if>
+      <if test="bbin != null">
+        bbin = #{bbin,jdbcType=DOUBLE},
+      </if>
+      <if test="fanstatus != null">
+        fanstatus = #{fanstatus,jdbcType=INTEGER},
+      </if>
+      <if test="huanyuan != null">
+        huanyuan = #{huanyuan,jdbcType=DOUBLE},
+      </if>
+      <if test="jiagou != null">
+        jiagou = #{jiagou,jdbcType=DOUBLE},
+      </if>
+      <if test="jingying != null">
+        jingying = #{jingying,jdbcType=DOUBLE},
+      </if>
+      <if test="lirunlv != null">
+        lirunlv = #{lirunlv,jdbcType=DOUBLE},
+      </if>
+      <if test="riskLevel != null">
+        risk_level = #{riskLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="shiyonglv != null">
+        shiyonglv = #{shiyonglv,jdbcType=DOUBLE},
+      </if>
+      <if test="sessionid != null">
+        sessionid = #{sessionid,jdbcType=VARCHAR},
+      </if>
+      <if test="fgjidcard != null">
+        fgjidcard = #{fgjidcard,jdbcType=VARCHAR},
+      </if>
+      <if test="fgjname != null">
+        fgjname = #{fgjname,jdbcType=VARCHAR},
+      </if>
+      <if test="sealdue != null">
+        sealDue = #{sealdue,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sealmsg != null">
+        sealmsg = #{sealmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="sealstatus != null">
+        sealstatus = #{sealstatus,jdbcType=INTEGER},
+      </if>
+      <if test="usersource != null">
+        userSource = #{usersource,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sealdetail != null">
+        sealdetail = #{sealdetail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="idcardimgf != null">
+        idcardImgF = #{idcardimgf,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="idcardimgr != null">
+        idcardImgR = #{idcardimgr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sfidcardimgf != null">
+        sfidcardImgF = #{sfidcardimgf,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sfidcardimgr != null">
+        sfidcardImgR = #{sfidcardimgr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.test.easypoi.pojo.UserWithBlobs">
+    update user
+    set username = #{username,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      home_address = #{homeAddress,jdbcType=VARCHAR},
+      QQ = #{qq,jdbcType=VARCHAR},
+      MSN = #{msn,jdbcType=VARCHAR},
+      mobile_number = #{mobileNumber,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      current_address = #{currentAddress,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      security_question1 = #{securityQuestion1,jdbcType=VARCHAR},
+      security_question2 = #{securityQuestion2,jdbcType=VARCHAR},
+      security_answer1 = #{securityAnswer1,jdbcType=VARCHAR},
+      security_answer2 = #{securityAnswer2,jdbcType=VARCHAR},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      area = #{area,jdbcType=VARCHAR},
+      cash_password = #{cashPassword,jdbcType=VARCHAR},
+      area_city = #{areaCity,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER},
+      disable_time = #{disableTime,jdbcType=TIMESTAMP},
+      borrower_info_id = #{borrowerInfoId,jdbcType=VARCHAR},
+      level = #{level,jdbcType=VARCHAR},
+      bind_ip = #{bindIp,jdbcType=VARCHAR},
+      referrer = #{referrer,jdbcType=VARCHAR},
+      gas_card = #{gasCard,jdbcType=VARCHAR},
+      gas_station = #{gasStation,jdbcType=VARCHAR},
+      gas_time = #{gasTime,jdbcType=TIMESTAMP},
+      plate_number = #{plateNumber,jdbcType=VARCHAR},
+      last_login_area = #{lastLoginArea,jdbcType=VARCHAR},
+      subst_id = #{substId,jdbcType=VARCHAR},
+      userpoint = #{userpoint,jdbcType=VARCHAR},
+      photoupdatetime = #{photoupdatetime,jdbcType=VARCHAR},
+      weixinname = #{weixinname,jdbcType=VARCHAR},
+      weixinheadimg = #{weixinheadimg,jdbcType=VARCHAR},
+      tiyanjin_id = #{tiyanjinId,jdbcType=VARCHAR},
+      islogin = #{islogin,jdbcType=INTEGER},
+      bbin = #{bbin,jdbcType=DOUBLE},
+      fanstatus = #{fanstatus,jdbcType=INTEGER},
+      huanyuan = #{huanyuan,jdbcType=DOUBLE},
+      jiagou = #{jiagou,jdbcType=DOUBLE},
+      jingying = #{jingying,jdbcType=DOUBLE},
+      lirunlv = #{lirunlv,jdbcType=DOUBLE},
+      risk_level = #{riskLevel,jdbcType=VARCHAR},
+      shiyonglv = #{shiyonglv,jdbcType=DOUBLE},
+      sessionid = #{sessionid,jdbcType=VARCHAR},
+      fgjidcard = #{fgjidcard,jdbcType=VARCHAR},
+      fgjname = #{fgjname,jdbcType=VARCHAR},
+      sealDue = #{sealdue,jdbcType=TIMESTAMP},
+      sealmsg = #{sealmsg,jdbcType=VARCHAR},
+      sealstatus = #{sealstatus,jdbcType=INTEGER},
+      userSource = #{usersource,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=LONGVARCHAR},
+      sealdetail = #{sealdetail,jdbcType=LONGVARCHAR},
+      idcardImgF = #{idcardimgf,jdbcType=LONGVARCHAR},
+      idcardImgR = #{idcardimgr,jdbcType=LONGVARCHAR},
+      sfidcardImgF = #{sfidcardimgf,jdbcType=LONGVARCHAR},
+      sfidcardImgR = #{sfidcardimgr,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test.easypoi.pojo.User">
+    update user
+    set username = #{username,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      home_address = #{homeAddress,jdbcType=VARCHAR},
+      QQ = #{qq,jdbcType=VARCHAR},
+      MSN = #{msn,jdbcType=VARCHAR},
+      mobile_number = #{mobileNumber,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      current_address = #{currentAddress,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      security_question1 = #{securityQuestion1,jdbcType=VARCHAR},
+      security_question2 = #{securityQuestion2,jdbcType=VARCHAR},
+      security_answer1 = #{securityAnswer1,jdbcType=VARCHAR},
+      security_answer2 = #{securityAnswer2,jdbcType=VARCHAR},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      area = #{area,jdbcType=VARCHAR},
+      cash_password = #{cashPassword,jdbcType=VARCHAR},
+      area_city = #{areaCity,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER},
+      disable_time = #{disableTime,jdbcType=TIMESTAMP},
+      borrower_info_id = #{borrowerInfoId,jdbcType=VARCHAR},
+      level = #{level,jdbcType=VARCHAR},
+      bind_ip = #{bindIp,jdbcType=VARCHAR},
+      referrer = #{referrer,jdbcType=VARCHAR},
+      gas_card = #{gasCard,jdbcType=VARCHAR},
+      gas_station = #{gasStation,jdbcType=VARCHAR},
+      gas_time = #{gasTime,jdbcType=TIMESTAMP},
+      plate_number = #{plateNumber,jdbcType=VARCHAR},
+      last_login_area = #{lastLoginArea,jdbcType=VARCHAR},
+      subst_id = #{substId,jdbcType=VARCHAR},
+      userpoint = #{userpoint,jdbcType=VARCHAR},
+      photoupdatetime = #{photoupdatetime,jdbcType=VARCHAR},
+      weixinname = #{weixinname,jdbcType=VARCHAR},
+      weixinheadimg = #{weixinheadimg,jdbcType=VARCHAR},
+      tiyanjin_id = #{tiyanjinId,jdbcType=VARCHAR},
+      islogin = #{islogin,jdbcType=INTEGER},
+      bbin = #{bbin,jdbcType=DOUBLE},
+      fanstatus = #{fanstatus,jdbcType=INTEGER},
+      huanyuan = #{huanyuan,jdbcType=DOUBLE},
+      jiagou = #{jiagou,jdbcType=DOUBLE},
+      jingying = #{jingying,jdbcType=DOUBLE},
+      lirunlv = #{lirunlv,jdbcType=DOUBLE},
+      risk_level = #{riskLevel,jdbcType=VARCHAR},
+      shiyonglv = #{shiyonglv,jdbcType=DOUBLE},
+      sessionid = #{sessionid,jdbcType=VARCHAR},
+      fgjidcard = #{fgjidcard,jdbcType=VARCHAR},
+      fgjname = #{fgjname,jdbcType=VARCHAR},
+      sealDue = #{sealdue,jdbcType=TIMESTAMP},
+      sealmsg = #{sealmsg,jdbcType=VARCHAR},
+      sealstatus = #{sealstatus,jdbcType=INTEGER},
+      userSource = #{usersource,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

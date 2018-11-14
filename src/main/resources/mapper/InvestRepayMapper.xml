@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.easypoi.mapper.InvestRepayMapper">
+  <resultMap id="BaseResultMap" type="com.test.easypoi.pojo.InvestRepay">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="corpus" jdbcType="DOUBLE" property="corpus" />
+    <result column="default_interest" jdbcType="DOUBLE" property="defaultInterest" />
+    <result column="interest" jdbcType="DOUBLE" property="interest" />
+    <result column="length" jdbcType="INTEGER" property="length" />
+    <result column="period" jdbcType="INTEGER" property="period" />
+    <result column="repay_day" jdbcType="TIMESTAMP" property="repayDay" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="invest_id" jdbcType="VARCHAR" property="investId" />
+    <result column="fee" jdbcType="DOUBLE" property="fee" />
+    <result column="corpus_to_system" jdbcType="DOUBLE" property="corpusToSystem" />
+    <result column="act_Interest" jdbcType="DOUBLE" property="actInterest" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, corpus, default_interest, interest, length, period, repay_day, status, time, 
+    invest_id, fee, corpus_to_system, act_Interest
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from invest_repay
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from invest_repay
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.test.easypoi.pojo.InvestRepay">
+    insert into invest_repay (id, corpus, default_interest, 
+      interest, length, period, 
+      repay_day, status, time, 
+      invest_id, fee, corpus_to_system, 
+      act_Interest)
+    values (#{id,jdbcType=VARCHAR}, #{corpus,jdbcType=DOUBLE}, #{defaultInterest,jdbcType=DOUBLE}, 
+      #{interest,jdbcType=DOUBLE}, #{length,jdbcType=INTEGER}, #{period,jdbcType=INTEGER}, 
+      #{repayDay,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+      #{investId,jdbcType=VARCHAR}, #{fee,jdbcType=DOUBLE}, #{corpusToSystem,jdbcType=DOUBLE}, 
+      #{actInterest,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.test.easypoi.pojo.InvestRepay">
+    insert into invest_repay
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="corpus != null">
+        corpus,
+      </if>
+      <if test="defaultInterest != null">
+        default_interest,
+      </if>
+      <if test="interest != null">
+        interest,
+      </if>
+      <if test="length != null">
+        length,
+      </if>
+      <if test="period != null">
+        period,
+      </if>
+      <if test="repayDay != null">
+        repay_day,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="investId != null">
+        invest_id,
+      </if>
+      <if test="fee != null">
+        fee,
+      </if>
+      <if test="corpusToSystem != null">
+        corpus_to_system,
+      </if>
+      <if test="actInterest != null">
+        act_Interest,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="corpus != null">
+        #{corpus,jdbcType=DOUBLE},
+      </if>
+      <if test="defaultInterest != null">
+        #{defaultInterest,jdbcType=DOUBLE},
+      </if>
+      <if test="interest != null">
+        #{interest,jdbcType=DOUBLE},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=INTEGER},
+      </if>
+      <if test="period != null">
+        #{period,jdbcType=INTEGER},
+      </if>
+      <if test="repayDay != null">
+        #{repayDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="investId != null">
+        #{investId,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null">
+        #{fee,jdbcType=DOUBLE},
+      </if>
+      <if test="corpusToSystem != null">
+        #{corpusToSystem,jdbcType=DOUBLE},
+      </if>
+      <if test="actInterest != null">
+        #{actInterest,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.easypoi.pojo.InvestRepay">
+    update invest_repay
+    <set>
+      <if test="corpus != null">
+        corpus = #{corpus,jdbcType=DOUBLE},
+      </if>
+      <if test="defaultInterest != null">
+        default_interest = #{defaultInterest,jdbcType=DOUBLE},
+      </if>
+      <if test="interest != null">
+        interest = #{interest,jdbcType=DOUBLE},
+      </if>
+      <if test="length != null">
+        length = #{length,jdbcType=INTEGER},
+      </if>
+      <if test="period != null">
+        period = #{period,jdbcType=INTEGER},
+      </if>
+      <if test="repayDay != null">
+        repay_day = #{repayDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="investId != null">
+        invest_id = #{investId,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null">
+        fee = #{fee,jdbcType=DOUBLE},
+      </if>
+      <if test="corpusToSystem != null">
+        corpus_to_system = #{corpusToSystem,jdbcType=DOUBLE},
+      </if>
+      <if test="actInterest != null">
+        act_Interest = #{actInterest,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test.easypoi.pojo.InvestRepay">
+    update invest_repay
+    set corpus = #{corpus,jdbcType=DOUBLE},
+      default_interest = #{defaultInterest,jdbcType=DOUBLE},
+      interest = #{interest,jdbcType=DOUBLE},
+      length = #{length,jdbcType=INTEGER},
+      period = #{period,jdbcType=INTEGER},
+      repay_day = #{repayDay,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      invest_id = #{investId,jdbcType=VARCHAR},
+      fee = #{fee,jdbcType=DOUBLE},
+      corpus_to_system = #{corpusToSystem,jdbcType=DOUBLE},
+      act_Interest = #{actInterest,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
