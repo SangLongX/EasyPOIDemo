@@ -5,7 +5,7 @@ import cn.afterturn.easypoi.excel.annotation.Excel;
 /**
  * 导出标的excel bean
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 14:18
  */
 public class LoanExcelBean {
@@ -23,7 +23,7 @@ public class LoanExcelBean {
     private String investRepayCorpus;
     @Excel(name = "投资回报利率", orderNum = "6")
     private String investRepayInterest;
-    @Excel(name = "投资时间", orderNum = "7")
+    @Excel(name = "投资时间", orderNum = "7", databaseFormat = "yyyy-MM-dd HH:mm:ss")
     private String investTime;
     @Excel(name = "投资回报状态", orderNum = "8")
     private String investRepayStatus;

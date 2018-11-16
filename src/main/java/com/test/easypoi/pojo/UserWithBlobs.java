@@ -3,7 +3,7 @@ package com.test.easypoi.pojo;
 /**
  * 用户bean
  * 
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 19:12
  */
 public class UserWithBlobs extends User {

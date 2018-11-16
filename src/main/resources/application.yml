@@ -38,3 +38,6 @@ logging:
       apache:
         commons:
           dbcp2: DEBUG
+
+server:
+  port: 8888

@@ -3,30 +3,31 @@ package com.test.easypoi.controller;
 import com.test.easypoi.service.IExcelService;
 import com.test.easypoi.service.ILoanService;
 import com.test.easypoi.service.ITransferApplyService;
-import com.test.easypoi.util.CommonUtil;
-import com.test.easypoi.util.DateUtil;
-import com.test.easypoi.util.entity.excel.TransferApplyExcelBean;
+import com.test.easypoi.util.entity.generic.CommonUtil;
+import com.test.easypoi.util.entity.generic.DateUtil;
+import com.test.easypoi.util.entity.generic.MagicElements;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static com.test.easypoi.util.entity.generic.MagicElements.*;
 
 /**
- * 入口
+ * 入口 --
+ * 未注释的方法为跳转页面
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 13:36
  */
 @Controller
-@RequestMapping("/dragon")
+@RequestMapping("/sample")
 public class EntranceController {
     @Autowired
     IExcelService excelService;
@@ -35,71 +36,81 @@ public class EntranceController {
     @Autowired
     ITransferApplyService transferApplyService;
 
-    private List<String> downloadClassList = Arrays.asList("loan", "transfer");
 
     @RequestMapping("/index")
     public String index() {
         return "index";
     }
 
-    @RequestMapping("/poidownload")
-    public void downloadExcel(HttpServletResponse response) {
-        excelService.downloadTest(response);
+    @RequestMapping("/excel/fixed")
+    public String toFixedExcel() {
+        return "fixedExcel";
     }
 
-    @RequestMapping("/loan")
-    public String toLoan() {
-        return "loan";
+    @RequestMapping("/excel/generic")
+    public String toGenericExcel(Model model) {
+        Map<String, List> map = new HashMap<>(1);
+        List<MagicElements> magicElements = Arrays.asList(SQL_TRANSFER, SQL_LOAN);
+        map.put("selectItems", magicElements);
+        model.addAllAttributes(map);
+        return "excelSelect";
     }
 
-    @RequestMapping("/transfer")
-    public String toTransferApply() {
-        return "transferApply";
+    @RequestMapping("/excel/genericExport")
+    public String toGenericExcelSearch(Model model, HttpServletRequest request) {
+        String sql = request.getParameter("sql");
+
+        List<String> emptyList = excelService.getEmptyList(sql, "?");
+        String queryStr = emptyList.remove(emptyList.size() - 1);
+        model.addAttribute("listData", emptyList);
+        model.addAttribute("queryStr", queryStr);
+        return "excelSearch";
     }
 
     /**
      * 下载入口
      *
-     * @author SangXiaolong
-     * @date 2018/11/13
-     * @param request : 请求
+     * @param request  : 请求
      * @param response : 响应
      * @return : void
+     * @author WilliamSang
+     * @date 2018/11/13
      * @modifyHistory
      */
     @RequestMapping("/downloadExcel")
     public void downloadExcel(HttpServletRequest request, HttpServletResponse response) {
 
-        Map<String, String[]> parameterMap = request.getParameterMap();
+        Map<String, String[]> parameterMap = new HashMap<>(request.getParameterMap());
 
-        String downloadClass = CommonUtil.getSafeParam(parameterMap, "downloadClass");
-        int index = downloadClassList.indexOf(downloadClass);
-        if (index == 0) {
+        String downloadClass = CommonUtil.getSafeParamAndRemove(parameterMap, "downloadClass");
+        if (LOAN_EXCEL.getFull().equals(downloadClass)) {
             // loan
             String longestDateStr = CommonUtil.getSafeParam(parameterMap, "longestDate");
-
             Date longestDate = getRequestDate(longestDateStr);
 
             excelService.downloadLoan(longestDate, response);
-        } else if (index == 1) {
+        } else if (TRANSFER_EXCEL.getFull().equals(downloadClass)) {
             // transfer
             String item = CommonUtil.getSafeParam(parameterMap, "item");
             String userIds = CommonUtil.getSafeParam(parameterMap, "userIds");
             String transferDateStr = CommonUtil.getSafeParam(parameterMap, "transferDate");
-
             Date transferDate = getRequestDate(transferDateStr);
 
             excelService.downloadTransferApply(item, userIds, transferDate, response);
+        } else if (GENERIC_EXCEL.getFull().equals(downloadClass)) {
+            // generic
+            String paramStr = CommonUtil.getSafeParamAndRemove(parameterMap, "paramStr");
+            excelService.downloanGeneric(parameterMap.values(), paramStr, response);
         }
     }
 
     /**
      * 把String类型的时间转换成时间格式（格式为yyyy-mm-dd）
      *
-     * @author SangXiaolong
-     * @date 2018/11/13
      * @param dateStr : 时间字符
      * @return : java.util.Date 时间对象
+     * @author WilliamSang
+     * @date 2018/11/13
      * @modifyHistory
      */
     private Date getRequestDate(String dateStr) {

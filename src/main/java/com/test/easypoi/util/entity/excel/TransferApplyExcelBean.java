@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * 导出债转excel bean
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 14:20
  */
 public class TransferApplyExcelBean {
@@ -17,7 +17,7 @@ public class TransferApplyExcelBean {
     private String investUserName;
     @Excel(name = "投资状态", orderNum = "2")
     private String investStatus;
-    @Excel(name = "债转开始时间", orderNum = "3")
+    @Excel(name = "债转开始时间", orderNum = "3", databaseFormat = "yyyy-MM-dd HH:mm:ss")
     private Date transferBeginTime;
     @Excel(name = "债转本金", orderNum = "4")
     private Double transferCorpus;

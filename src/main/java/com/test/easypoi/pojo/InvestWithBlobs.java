@@ -3,7 +3,7 @@ package com.test.easypoi.pojo;
 /**
  * 投资bean
  * 
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 19:11
  */
 public class InvestWithBlobs extends Invest {

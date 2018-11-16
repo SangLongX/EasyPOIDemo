@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * 债转provider
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 14:18
  */
 public class TransferApplyProvider {
@@ -18,7 +18,7 @@ public class TransferApplyProvider {
     /**
      * 查询需要导出的债转信息
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param toWhere : 要排除的数据来源 0 - 百达； 1 - 富管家； 2 - 同城
      * @param transferStartTime : 债转开始时间
@@ -27,7 +27,9 @@ public class TransferApplyProvider {
      * @modifyHistory
      */
     public String findTransferApplyExcelData(@Param("toWhere") String toWhere, @Param("transferStartTime") Date transferStartTime, @Param("userIds") String[] investUserIds) {
-        String sql = "SELECT inv.`user_id` investId,u.`realname` investUserName,inv.`status` investStatus,ta.`apply_time` transferBeginTime,ta.`corpus` transferCorpus,inv.`sourceOrderid` sourceOrderId " +
+        String sql = "SELECT inv.`user_id` investId,u.`realname` investUserName," +
+                "CASE inv.`status` WHEN 'complete' THEN '完成' WHEN 'wait_loaning_verify' THEN '资金托管放款确认中' WHEN 'cancel' THEN '流标' WHEN 'bad_debt' THEN '坏账' WHEN 'wait_affirm' THEN '资金托管确认中' WHEN 'overdue' THEN '逾期' WHEN 'withdrawal' THEN '撤标' WHEN 'bid_success' THEN '投标成功' WHEN 'repaying' THEN '还款中' ELSE '未指定' END investStatus ," +
+                "ta.`apply_time` transferBeginTime,ta.`corpus` transferCorpus,inv.`sourceOrderid` sourceOrderId " +
                 "FROM invest inv " +
                 "LEFT JOIN transfer_apply ta ON inv.`id`=ta.`invest_id` " +
                 "LEFT JOIN USER u ON u.id = inv.`user_id` " +

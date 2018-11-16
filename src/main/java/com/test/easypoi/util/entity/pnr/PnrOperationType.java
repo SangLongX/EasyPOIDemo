@@ -4,7 +4,7 @@ package com.test.easypoi.util.entity.pnr;
  * 汇付操作类型 --
  * 说明同PnrStatus
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/14 13:55
  * @modifyHistory
  * 2018/11/14 仅存入资金操作
@@ -19,37 +19,37 @@ public enum PnrOperationType {
     BILL_UNFREEZE("bl_ufz", "解冻", "unfreeze"),
     ;
 
-    private String operation;
-    private String operationVal;
-    private String op;
+    private String abbr;
+    private String cnDes;
+    private String full;
 
-    public String getOperation() {
-        return operation;
+    public String getAbbr() {
+        return abbr;
     }
 
-    public void setOperation(String operation) {
-        this.operation = operation;
+    public void setAbbr(String abbr) {
+        this.abbr = abbr;
     }
 
-    public String getOperationVal() {
-        return operationVal;
+    public String getCnDes() {
+        return cnDes;
     }
 
-    public void setOperationVal(String operationVal) {
-        this.operationVal = operationVal;
+    public void setCnDes(String cnDes) {
+        this.cnDes = cnDes;
     }
 
-    public String getOp() {
-        return op;
+    public String getFull() {
+        return full;
     }
 
-    public void setOp(String op) {
-        this.op = op;
+    public void setFull(String full) {
+        this.full = full;
     }
 
-    PnrOperationType (String operation, String operationVal, String op) {
-        this.operation = operation;
-        this.operationVal = operationVal;
-        this.op = op;
+    PnrOperationType(String abb, String cnDes, String full) {
+        this.abbr = abb;
+        this.cnDes = cnDes;
+        this.full = full;
     }
 }

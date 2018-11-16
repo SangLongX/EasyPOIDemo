@@ -2,11 +2,11 @@ package com.test.easypoi.util.entity.pnr;
 
 /**
  * 汇付状态 --
- * status 是要传递的值；
- * statusVal 是要显示的中文信息；
- * st 是数据库真实值
+ * abbr 是要传递的值（简写）
+ * cnDes 是要显示的中文信息（中文描述）
+ * full 是数据库真实值（全称）
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/14 11:09
  */
 public enum PnrStatus {
@@ -81,38 +81,38 @@ public enum PnrStatus {
     OPERATION_CANCEL("op_cc", "取消", "cancel"),
 
     ;
-    private String status;
-    private String statusVal;
-    private String st;
+    private String abbr;
+    private String cnDes;
+    private String full;
 
-    public String getStatus() {
-        return status;
+    public String getAbbr() {
+        return abbr;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAbbr(String abbr) {
+        this.abbr = abbr;
     }
 
-    public String getStatusVal() {
-        return statusVal;
+    public String getCnDes() {
+        return cnDes;
     }
 
-    public void setStatusVal(String statusVal) {
-        this.statusVal = statusVal;
+    public void setCnDes(String cnDes) {
+        this.cnDes = cnDes;
     }
 
-    public String getSt() {
-        return st;
+    public String getFull() {
+        return full;
     }
 
-    public void setSt(String st) {
-        this.st = st;
+    public void setFull(String full) {
+        this.full = full;
     }
 
-    PnrStatus(String status, String statusVal, String st) {
-        this.status = status;
-        this.statusVal = statusVal;
-        this.st = st;
+    PnrStatus(String abb, String cnDes, String full) {
+        this.abbr = abb;
+        this.cnDes = cnDes;
+        this.full = full;
     }
 }
 

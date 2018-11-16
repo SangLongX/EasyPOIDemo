@@ -2,6 +2,7 @@ package com.test.easypoi.service.impl;
 
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
+import cn.afterturn.easypoi.excel.entity.params.ExcelExportEntity;
 import com.test.easypoi.mapper.UserMapper;
 import com.test.easypoi.pojo.UserWithBlobs;
 import com.test.easypoi.service.IExcelService;
@@ -10,20 +11,22 @@ import com.test.easypoi.service.ITransferApplyService;
 import com.test.easypoi.util.entity.excel.ExcelTemplateBean;
 import com.test.easypoi.util.entity.excel.TransferApplyExcelBean;
 import com.test.easypoi.util.entity.excel.LoanExcelBean;
+import com.test.easypoi.util.entity.generic.MagicElements;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+
+import static com.test.easypoi.util.entity.generic.MagicElements.SQL_LOAN;
+import static com.test.easypoi.util.entity.generic.MagicElements.SQL_TRANSFER;
 
 /**
  * 导出excel 实现
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 13:42
  */
 @Service
@@ -103,7 +106,7 @@ public class ExcelServiceImpl implements IExcelService {
     /**
      * 下载excel
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param fileName : excel文件名
      * @param sheetName : sheet名
@@ -125,4 +128,69 @@ public class ExcelServiceImpl implements IExcelService {
         workbook.close();
     }
 
+
+    @Override
+    public List<String> getEmptyList(String abbr, String symbol) {
+        MagicElements element = null;
+        if (SQL_LOAN.getAbbr().equals(abbr)) {
+            element = SQL_LOAN;
+        } else if (SQL_TRANSFER.getAbbr().equals(abbr)) {
+            element = SQL_TRANSFER;
+        }
+        if (element == null) {
+            return null;
+        }
+        List numberList = getNumberList(element, '?');
+        numberList.add(element.getFull());
+        return numberList;
+    }
+
+    private List<String> getNumberList(MagicElements element, char symbol) {
+        List list = new ArrayList();
+        String srcText = element.getFull();
+        char[] chs = srcText.toCharArray();
+        // 定义变量count存储字符串出现次数
+        int count = 0;
+        for(int i = 0;i < chs.length;i++) {
+            if(chs[i] == symbol) {
+                list.add(count+"");
+                count++;
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public void downloanGeneric(Collection<String[]> values, String paramStr, HttpServletResponse response) {
+        List<Map<String, Object>> resultList = loanService.findGenericExcel(values, paramStr);
+
+        try {
+            downloadGenerict(resultList, response);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void downloadGenerict(List<Map<String, Object>> data, HttpServletResponse response) throws IOException {
+        List<ExcelExportEntity> colList = new ArrayList<ExcelExportEntity>();
+        
+        if ( data == null || data.size() < 1) {
+            throw new RuntimeException("无数据");
+        }
+        Set<String> samplekeys = data.get(0).keySet();
+        for (String str :
+                samplekeys) {
+            ExcelExportEntity entity = new ExcelExportEntity(str, str);
+            colList.add(entity);
+        }
+
+
+        Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams(null, null), colList,
+                data);
+        response.setHeader("content-Type","application/vnd.ms-excel");
+        response.setHeader("Content-Disposition","attachment;filename="+new String("数据".getBytes(),"iso-8859-1")+".xls");
+        response.setCharacterEncoding("UTF-8");
+        workbook.write(response.getOutputStream());
+        workbook.close();
+    }
 }
