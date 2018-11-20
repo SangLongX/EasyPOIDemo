@@ -4,7 +4,7 @@ package com.test.easypoi.util.entity.pnr;
  * 汇付操作类型 --
  * 说明同PnrStatus
  *
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/14 13:55
  * @modifyHistory
  * 2018/11/14 仅存入资金操作

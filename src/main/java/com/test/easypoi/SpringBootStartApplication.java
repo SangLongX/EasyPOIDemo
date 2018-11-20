@@ -6,7 +6,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 /**
  * 打包用
  *
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/14 19:18
  */
 public class SpringBootStartApplication extends SpringBootServletInitializer {

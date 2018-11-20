@@ -11,7 +11,7 @@
         <p align="left">
         <h3>债转</h3>
         </p>
-        <form id="transferForm" action="/bdjr/downloadExcel">
+        <form id="transferForm" action="/${request.contextPath}/bdjr/downloadExcel">
 
             <input type="hidden" class="form-control" name="downloadClass" id="downloadClass" value="transfer"/>
             <table align="center" class="table">
@@ -66,7 +66,7 @@
         <p align="left">
         <h3>标的</h3>
         </p>
-        <form id="loanForm" action="/bdjr/downloadExcel">
+        <form id="loanForm" action="${request.contextPath}/bdjr/downloadExcel">
             <input type="hidden" name="downloadClass" id="downloadClass" value="loan"/>
             <table align="center" class="table">
                 <tr>

@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 投资bean
  * 
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/13 19:10
  */
 public class Invest {

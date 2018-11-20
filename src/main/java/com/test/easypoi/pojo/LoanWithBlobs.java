@@ -3,7 +3,7 @@ package com.test.easypoi.pojo;
 /**
  * 标的bean
  * 
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/13 19:11
  */
 public class LoanWithBlobs extends Loan {

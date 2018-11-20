@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 投资回报bean
  * 
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/13 19:10
  */
 public class InvestRepay {

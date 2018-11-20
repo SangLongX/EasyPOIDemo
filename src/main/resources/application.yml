@@ -2,7 +2,7 @@ spring:
   # MySQL
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test_db?characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3306/db_test?characterEncoding=utf8&useSSL=false
     username: root
     password: root
   # freemaker
@@ -15,10 +15,15 @@ spring:
     expose-session-attributes: true
     request-context-attribute: request
     suffix: .ftl
+    template-loader-path: classpath:/templates/
   # 默认前缀
   mvc:
     view:
       prefix: /
+  resources:
+    static-locations: classpath:/static/js/
+  thymeleaf:
+    cache: false
 
 
 # mybatis
@@ -38,6 +43,5 @@ logging:
       apache:
         commons:
           dbcp2: DEBUG
-
 server:
   port: 8888

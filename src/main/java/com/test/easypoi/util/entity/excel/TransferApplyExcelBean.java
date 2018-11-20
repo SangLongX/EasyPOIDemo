@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * 导出债转excel bean
  *
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/13 14:20
  */
 public class TransferApplyExcelBean {

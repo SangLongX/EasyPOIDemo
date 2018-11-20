@@ -11,22 +11,23 @@ import com.test.easypoi.service.ITransferApplyService;
 import com.test.easypoi.util.entity.excel.ExcelTemplateBean;
 import com.test.easypoi.util.entity.excel.TransferApplyExcelBean;
 import com.test.easypoi.util.entity.excel.LoanExcelBean;
-import com.test.easypoi.util.entity.generic.MagicElements;
+import com.test.easypoi.util.generic.MagicElements;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
-import static com.test.easypoi.util.entity.generic.MagicElements.SQL_LOAN;
-import static com.test.easypoi.util.entity.generic.MagicElements.SQL_TRANSFER;
+import static com.test.easypoi.util.generic.MagicElements.SQL_LOAN;
+import static com.test.easypoi.util.generic.MagicElements.SQL_TRANSFER;
 
 /**
  * 导出excel 实现
  *
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/13 13:42
  */
 @Service
@@ -106,7 +107,7 @@ public class ExcelServiceImpl implements IExcelService {
     /**
      * 下载excel
      *
-     * @author WilliamSang
+     * @author SangXiaolong
      * @date 2018/11/13
      * @param fileName : excel文件名
      * @param sheetName : sheet名
@@ -161,14 +162,32 @@ public class ExcelServiceImpl implements IExcelService {
     }
 
     @Override
-    public void downloanGeneric(Collection<String[]> values, String paramStr, HttpServletResponse response) {
-        List<Map<String, Object>> resultList = loanService.findGenericExcel(values, paramStr);
+    public void downloanGeneric(List<String> dataList, String paramStr, HttpServletResponse response) {
+        List<Map<String, Object>> resultList = loanService.findGenericExcel(dataList, paramStr);
 
+        if (resultList== null || resultList.size() < 1) {
+            try {
+                alert("无数据", response);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
         try {
             downloadGenerict(resultList, response);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void alert(String message, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.flush();
+        out.println("<script>");
+        out.println("alert('"+message+"');");
+        out.println("history.back();");
+        out.println("</script>");
     }
 
     public void downloadGenerict(List<Map<String, Object>> data, HttpServletResponse response) throws IOException {

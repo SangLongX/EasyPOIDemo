@@ -5,7 +5,7 @@ import cn.afterturn.easypoi.excel.annotation.Excel;
 /**
  * 导出标的excel bean
  *
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/13 14:18
  */
 public class LoanExcelBean {

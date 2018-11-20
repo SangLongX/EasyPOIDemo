@@ -2,11 +2,11 @@
 <!--头部 导航栏-->
 <header>
     <h2>导出excel</h2>
-    <link href="/webjars/bootstrap/3.0.3/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="${request.contextPath}/webjars/bootstrap/3.0.3/dist/css/bootstrap.css" rel="stylesheet">
 </header>
 <hr style="filter: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color="#6f5499" size="3"/>
 <body class="text-center">
-<form action="/bdjr/downloadExcel" method="post">
+<form action="${request.contextPath}/bdjr/downloadExcel" method="post">
     <input type="hidden" value="generic" id="downloadClass" name="downloadClass"/>
     <input type="hidden" value="${queryStr}" id="paramStr" name="paramStr"/>
     <table class="table" align="center">

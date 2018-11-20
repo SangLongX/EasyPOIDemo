@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="" />
     <link href="/webjars/bootstrap/3.0.3/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="${request.contextPath}/webjars/bootstrap/3.0.3/dist/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
         <#nested>

@@ -3,9 +3,9 @@ package com.test.easypoi.controller;
 import com.test.easypoi.service.IExcelService;
 import com.test.easypoi.service.ILoanService;
 import com.test.easypoi.service.ITransferApplyService;
-import com.test.easypoi.util.entity.generic.CommonUtil;
-import com.test.easypoi.util.entity.generic.DateUtil;
-import com.test.easypoi.util.entity.generic.MagicElements;
+import com.test.easypoi.util.generic.CommonUtil;
+import com.test.easypoi.util.generic.DateUtil;
+import com.test.easypoi.util.generic.MagicElements;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,17 +17,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
 import java.util.*;
 
-import static com.test.easypoi.util.entity.generic.MagicElements.*;
+import static com.test.easypoi.util.generic.MagicElements.*;
 
 /**
  * 入口 --
  * 未注释的方法为跳转页面
  *
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/13 13:36
  */
 @Controller
-@RequestMapping("/sample")
+@RequestMapping("/bdjr")
 public class EntranceController {
     @Autowired
     IExcelService excelService;
@@ -73,7 +73,7 @@ public class EntranceController {
      * @param request  : 请求
      * @param response : 响应
      * @return : void
-     * @author WilliamSang
+     * @author SangXiaolong
      * @date 2018/11/13
      * @modifyHistory
      */
@@ -100,7 +100,11 @@ public class EntranceController {
         } else if (GENERIC_EXCEL.getFull().equals(downloadClass)) {
             // generic
             String paramStr = CommonUtil.getSafeParamAndRemove(parameterMap, "paramStr");
-            excelService.downloanGeneric(parameterMap.values(), paramStr, response);
+            List<String> dataList = new ArrayList<>();
+            for (int i = 0; i < parameterMap.values().size(); i++) {
+                dataList.add(CommonUtil.getSafeParam(parameterMap, "col"+i));
+            }
+            excelService.downloanGeneric(dataList, paramStr, response);
         }
     }
 
@@ -109,7 +113,7 @@ public class EntranceController {
      *
      * @param dateStr : 时间字符
      * @return : java.util.Date 时间对象
-     * @author WilliamSang
+     * @author SangXiaolong
      * @date 2018/11/13
      * @modifyHistory
      */

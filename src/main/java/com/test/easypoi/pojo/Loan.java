@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 标的基本信息
  * 
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/13 16:35
  */
 public class Loan {

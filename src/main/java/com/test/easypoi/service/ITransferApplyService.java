@@ -8,14 +8,14 @@ import java.util.List;
 /**
  * 债转service
  *
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/13 16:07
  */
 public interface ITransferApplyService {
     /**
      * 查询债转信息
      *
-     * @author WilliamSang
+     * @author SangXiaolong
      * @date 2018/11/13
      * @param toWhere : 要排除的数据源
      * @param transferApplyStartTime : 债转开始时间

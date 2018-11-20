@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 用户bean
  * 
- * @author WilliamSang
+ * @author SangXiaolong
  * @date 2018/11/13 19:12
  */
 public class User {
