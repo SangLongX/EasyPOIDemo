@@ -6,7 +6,7 @@ package com.test.easypoi.util.entity.pnr;
  * cnDes 是要显示的中文信息（中文描述）
  * full 是数据库真实值（全称）
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/14 11:09
  */
 public enum PnrStatus {

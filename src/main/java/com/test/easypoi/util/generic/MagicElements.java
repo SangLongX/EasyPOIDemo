@@ -4,7 +4,7 @@ package com.test.easypoi.util.generic;
  * 魔法值 --
  * 即固定值
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/15 15:17
  */
 public enum  MagicElements {

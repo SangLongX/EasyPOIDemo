@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 债转bean
  * 
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 19:12
  */
 public class TransferApply {

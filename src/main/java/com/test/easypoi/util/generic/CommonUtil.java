@@ -12,7 +12,7 @@ import static com.test.easypoi.util.generic.MagicElements.EMPTY_VAL;
 /**
  * 常用的工具类
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 16:47
  */
 public class CommonUtil {
@@ -20,7 +20,7 @@ public class CommonUtil {
     /**
      * 简便获取request parameterMap的value
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param paramMap : parameterMap
      * @param key : 键
@@ -38,7 +38,7 @@ public class CommonUtil {
     /**
      * 简便取出request parameterMap的value，并移除（map需要转换为可变map）
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/19
      * @param paramMap : parameterMap
      * @param key : 键（删除的）
@@ -56,7 +56,7 @@ public class CommonUtil {
     /**
      * 获取String[]的第一个元素
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/19
      * @param arg : String[]
      * @return : java.lang.String 第一个元素，默认null
@@ -72,7 +72,7 @@ public class CommonUtil {
     /**
      * 替换字符串
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/19
      * @param originalStr : 原字符串
      * @param symbol : 替换的标志（一个字符）
@@ -103,7 +103,7 @@ public class CommonUtil {
     /**
      * 统计collection不为空的元素个数
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/19
      * @param collection : collection
      * @return : int 数量
@@ -123,7 +123,7 @@ public class CommonUtil {
     /**
      * 查找字符串指定字符位置的list
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/19
      * @param str : 原字符串
      * @param symbol : 标志的字符

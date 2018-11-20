@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * 标的mapper
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 16:29
  */
 @Mapper
@@ -25,7 +25,7 @@ public interface LoanMapper {
     /**
      * 根据主键删除
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param id : 主键
      * @return : int 受影响行数
@@ -37,7 +37,7 @@ public interface LoanMapper {
     /**
      * 插入标的（完全）
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param record : 标的bean
      * @return : int 受影响行数
@@ -49,7 +49,7 @@ public interface LoanMapper {
     /**
      * 插入标的（可选）
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param record : 标的bean
      * @return : int 受影响行数
@@ -61,7 +61,7 @@ public interface LoanMapper {
     /**
      * 根据主键查询
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param id : 主键
      * @return : com.test.easypoi.pojo.LoanWithBlobs 标的bean
@@ -73,7 +73,7 @@ public interface LoanMapper {
     /**
      * 根据主键更新（可选）
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param record : 标的bean
      * @return : int 受影响行数
@@ -85,7 +85,7 @@ public interface LoanMapper {
     /**
      * 根据主键更新（完全）
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param record : 标的bean
      * @return : int 受影响行数
@@ -97,7 +97,7 @@ public interface LoanMapper {
     /**
      * 根据主键更新
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param record : 标的基本信息bean
      * @return : int 受影响行数
@@ -110,7 +110,7 @@ public interface LoanMapper {
     /**
      * 查询在一定时间内的标的excel
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/14
      * @param finalDate : 最大期限
      * @return : java.util.List<com.test.easypoi.util.entity.excel.LoanExcelBean> 标的excel bean list
@@ -123,7 +123,7 @@ public interface LoanMapper {
     /**
      * excel导出通用查询
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/16
      * @param sql : sql
      * @param params : 参数

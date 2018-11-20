@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * 债转provider
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 14:18
  */
 public class TransferApplyProvider {
@@ -18,7 +18,7 @@ public class TransferApplyProvider {
     /**
      * 查询需要导出的债转信息
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param toWhere : 要排除的数据来源 0 - 百达； 1 - 富管家； 2 - 同城
      * @param transferStartTime : 债转开始时间

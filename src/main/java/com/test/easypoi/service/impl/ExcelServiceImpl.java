@@ -27,7 +27,7 @@ import static com.test.easypoi.util.generic.MagicElements.SQL_TRANSFER;
 /**
  * 导出excel 实现
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 13:42
  */
 @Service
@@ -107,7 +107,7 @@ public class ExcelServiceImpl implements IExcelService {
     /**
      * 下载excel
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param fileName : excel文件名
      * @param sheetName : sheet名

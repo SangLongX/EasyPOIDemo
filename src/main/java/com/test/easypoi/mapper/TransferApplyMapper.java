@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * 债转mapper
  * 
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 16:29
  */
 @Mapper
@@ -23,7 +23,7 @@ public interface TransferApplyMapper {
     /**
      * 根据主键删除
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param id : 主键
      * @return : int 受影响行数
@@ -35,7 +35,7 @@ public interface TransferApplyMapper {
     /**
      * 插入债转（完全）
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param record : 债转bean
      * @return : int 受影响行数
@@ -47,7 +47,7 @@ public interface TransferApplyMapper {
     /**
      * 插入债转（可选）
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param record : 债转bean
      * @return : int 受影响行数
@@ -59,7 +59,7 @@ public interface TransferApplyMapper {
     /**
      * 根据主键查询债转
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param id : 主键
      * @return : com.test.easypoi.pojo.TransferApply 债转bean
@@ -71,7 +71,7 @@ public interface TransferApplyMapper {
     /**
      * 根据主键更新（可选）
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param record : 债转bean
      * @return : int 受影响行数
@@ -83,7 +83,7 @@ public interface TransferApplyMapper {
     /**
      * 根据主键更新（完全）
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param record : 债转bean
      * @return : int 受影响行数
@@ -96,7 +96,7 @@ public interface TransferApplyMapper {
     /**
      * 查询债转信息
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param toWhere : 要排除的数据源 0 - 百达； 1 - 富管家； 2 - 同城
      * @param transferApplyStartTime : 债转开始时间

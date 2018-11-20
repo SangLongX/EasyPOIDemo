@@ -23,7 +23,7 @@ import static com.test.easypoi.util.generic.MagicElements.*;
  * 入口 --
  * 未注释的方法为跳转页面
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 13:36
  */
 @Controller
@@ -73,7 +73,7 @@ public class EntranceController {
      * @param request  : 请求
      * @param response : 响应
      * @return : void
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @modifyHistory
      */
@@ -113,7 +113,7 @@ public class EntranceController {
      *
      * @param dateStr : 时间字符
      * @return : java.util.Date 时间对象
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @modifyHistory
      */

@@ -8,14 +8,14 @@ import java.util.List;
 /**
  * 导出excel service
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 13:42
  */
 public interface IExcelService {
     /**
      * 测试 -- 下载
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param response :
      * @return : void
@@ -26,7 +26,7 @@ public interface IExcelService {
     /**
      * 下载标的excel
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param lonestDate : 最长时间
      * @param response : 响应
@@ -39,7 +39,7 @@ public interface IExcelService {
     /**
      * 下载债转excel
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param toWhere : 排除的数据源 0 - 百达； 1 - 富管家； 2 - 同城
      * @param userIds : 用户id，多个用逗号分隔
@@ -54,7 +54,7 @@ public interface IExcelService {
     /**
      * 获取空的list（用于页面显示个数）
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/16
      * @param abbr : MagicElements的abbr
      * @param symbol : 标识符
@@ -67,7 +67,7 @@ public interface IExcelService {
     /**
      * 下载通用的excel
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/16
      * @param values : 参数
      * @param paramStr : sql

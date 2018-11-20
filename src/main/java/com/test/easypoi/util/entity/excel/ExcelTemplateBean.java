@@ -5,7 +5,7 @@ import cn.afterturn.easypoi.excel.annotation.Excel;
 /**
  * easyPoi测试demo
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 14:13
  */
 public class ExcelTemplateBean {

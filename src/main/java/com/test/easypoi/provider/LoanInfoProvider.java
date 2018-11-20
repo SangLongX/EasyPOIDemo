@@ -12,7 +12,7 @@ import static com.test.easypoi.util.generic.MagicElements.SQL_SYMBOL;
 /**
  * 标的provider
  *
- * @author SangXiaolong
+ * @author WilliamSang
  * @date 2018/11/13 14:18
  */
 public class LoanInfoProvider {
@@ -20,7 +20,7 @@ public class LoanInfoProvider {
     /**
      * 查询在一定时间内的标的excel
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/13
      * @param finalDate : 最大期限
      * @return : java.lang.String sql语句
@@ -43,7 +43,7 @@ public class LoanInfoProvider {
     /**
      * 通用导出excel
      *
-     * @author SangXiaolong
+     * @author WilliamSang
      * @date 2018/11/16
      * @param sql :sql语句
      * @param params : 参数
