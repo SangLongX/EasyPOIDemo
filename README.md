@@ -8,6 +8,7 @@ EasyPOI demo
 ### 说明
 
 - 通用导出规则：<br/>
+
   - **使用者要熟知SQL**<br/>
     对于in参数的输入框，格式必须以`'item1','item2'...'`的格式；<br/>
   - **多参数须注意**<br>
@@ -21,8 +22,16 @@ EasyPOI demo
     // full SQL语句，规则见 **通用导出规则**
     SQL_QUERY_EXAMPLE("abbr", "cnDes", "full")
     ​    ```
+
 - 导入规则：
-  - 2019/05/22版：按列来实现，excel指定列必须指定成员变量；数据默认从第二行开始（第一行默认为开头）；excel如果有多个sheet，多个sheet的实例为同一个（暂不支持多sheet多格式）
+
+  - 2019/05/22版：按列来实现，excel指定列必须指定成员变量；<br/>数据默认从第二行开始（第一行默认为开头）；<br/>excel如果有多个sheet，多个sheet的实例为同一个（暂不支持多sheet多格式）<br/>
+
+    增加规则：<br/>
+
+    1 - 增加实体 <br/>
+
+    2 - 增加继承IExcelEnum的Enum 
 
 ### 修订历史
 
