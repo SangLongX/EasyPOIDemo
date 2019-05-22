@@ -1,38 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head name="viewport" content="width=device-width, initial-scale=1">
-    <title>this is index</title>
-    <link href="/webjars/bootstrap/3.0.3/dist/css/bootstrap.css" rel="stylesheet">
+    <title>admin</title>
+    <link href="${request.contextPath}/webjars/bootstrap/3.0.3/dist/css/bootstrap.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="row">
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-    </div>
-    <div class="row">
-            <div class="col-md-8">.col-md-8</div>
-            <div class="col-md-4">.col-md-4</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">.col-md-6</div>
-            <div class="col-md-6">.col-md-6</div>
-        </div>
+    <body>
+        <h3 align="center">excel导出功能</h3>
+        <br/>
+        <hr/>
+        <ul class="list-unstyled">
+            <li>
+                <a href="${request.contextPath}/excel/fixed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标的和债转导出</a>
+            </li>
+            <li>
+                <a href="${request.contextPath}/excel/generic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通用导出</a>
+            </li>
+            <li>
+                <a href="${request.contextPath}/excel/import">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;导入</a>
+            </li>
+
+        </ul>
 
     </body>
 

@@ -23,9 +23,9 @@
                         <td align="left">
                             <select id="item" name="item">
                                 <option selected="selected" value="-1">---&nbsp;&nbsp;请选择&nbsp;&nbsp;---</option>
-                                <option value="0">百达</option>
-                                <option value="1">富管家</option>
-                                <option value="2">同城</option>
+                                <option value="0">来源1</option>
+                                <option value="1">来源2</option>
+                                <option value="2">来源3</option>
                             </select>
                         </td>
                     </tr>

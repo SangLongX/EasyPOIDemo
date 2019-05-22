@@ -58,7 +58,7 @@ public class LoanInfoProvider {
         String s = CommonUtil.replaceString(sql, "?", params);
         String symbol = SQL_SYMBOL.getFull();
         if (s.indexOf(symbol)!=-1) {
-            int devideIndex = s.indexOf(symbol);
+            int divideIndex = s.indexOf(symbol);
             s = s.split(symbol)[0].split("AND")[0];
         }
         return s;
