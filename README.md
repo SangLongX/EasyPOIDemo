@@ -33,6 +33,17 @@ EasyPOI demo
 
     2 - 增加继承IExcelEnum的Enum 
 
+### 表创建
+- 导入表
+    ```sql
+    CREATE TABLE `wheel` (
+      `brand` varchar(50) DEFAULT NULL,
+      `material` varchar(50) DEFAULT NULL,
+      `price` double DEFAULT NULL,
+      `out_com_date` date DEFAULT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    ```
+
 ### 修订历史
 
 - 2018/11/16
